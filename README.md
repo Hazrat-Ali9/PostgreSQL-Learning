@@ -5506,7 +5506,7 @@ Understanding how indexes work helps you build faster, more scalable PostgreSQL 
 
 # Author
 
-**Md Monjur Bakth Mazumder**  
+**Hazrat Ali**  
 Software Engineer & Lead Frontend Developer at [Hazrat](https://hazratali.dev/)  
 Web Developer at Velocity Digital Inc.
 
