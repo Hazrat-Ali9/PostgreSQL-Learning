@@ -3,7 +3,7 @@ CREATE Table my_users
     user_name VARCHAR(50),
     email VARCHAR(100)
 );
--- Trigger SQL
+-- Trigger Sql
 INSERT INTO my_users VALUES('Mezba', 'mezba@mail.com'), ('Mir', 'mir@mail.com');
 
 SELECT * from my_users;
