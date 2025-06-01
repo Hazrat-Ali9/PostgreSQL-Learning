@@ -1,4 +1,8 @@
-# PostgreSQL Learning 
+# 🐳 PostgreSQL Learning
+
+# 🐲 Hazrat Ali
+
+# 🌺 Programmer || Software Engineering 
 
 ## Introduction
 
