@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Welcome to the **PostgreSQL Learning Guide** — a structured and hands-on journey designed to help you master one of the world’s most powerful and feature-rich open-source relational database systems.
+Welcome to the **PostgreSQL Learning** — a structured and hands-on journey designed to help you master one of the world’s most powerful and feature-rich open-source relational database systems.
 
 PostgreSQL is widely trusted for its reliability, performance, and standards compliance. Whether you're building small applications or managing large-scale enterprise systems, understanding PostgreSQL is an essential skill for developers and data engineers alike.
 
@@ -5507,10 +5507,10 @@ Understanding how indexes work helps you build faster, more scalable PostgreSQL 
 # Author
 
 **Md Monjur Bakth Mazumder**  
-Software Engineer & Lead Frontend Developer at [Qrinux](https://www.qrinux.com/)  
+Software Engineer & Lead Frontend Developer at [Hazrat](https://hazratali.dev/)  
 Web Developer at Velocity Digital Inc.
 
-📧 [Email me](mailto:md.monjurmbm2001@gmail.com)  
-🌐 [Portfolio](https://mdmonjurbakthmazumder.netlify.app)
+📧 [Email me](hazratalibusiness9@gmail.com)  
+🌐 [Portfolio](https://hazratali.dev/)
 
 Passionate about building clean, maintainable, and scalable applications.
