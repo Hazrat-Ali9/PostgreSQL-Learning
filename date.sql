@@ -1,30 +1,49 @@
+-- ===============================
+-- SHOW CURRENT TIME & DATE
+-- ===============================
+SELECT now() AS current_timestamp;
+SELECT CURRENT_DATE AS today_date;
+SELECT now()::date AS current_date_only;
+SELECT now()::time AS current_time_only;
 
+-- ===============================
+-- CREATE TABLE WITH TIMESTAMP TYPES
+-- ===============================
+DROP TABLE IF EXISTS timeZ;
 
--- SHOW timezone;
-SELECT now();
+CREATE TABLE timeZ (
+    ts TIMESTAMP WITHOUT TIME ZONE,
+    tsz TIMESTAMP WITH TIME ZONE
+);
 
-create table timeZ (ts TIMESTAMP without time zone , tsz TIMESTAMP with time zone );
+-- ===============================
+-- INSERT SAMPLE DATA
+-- ===============================
+INSERT INTO timeZ (ts, tsz) VALUES 
+('2024-01-12 10:45:00', '2024-01-12 10:45:00+00');
 
-INSERT into timez VALUES('2024-01-12 10:45:00', '2024-01-12 10:45:00');
+-- ===============================
+-- SELECT FROM TIME TABLE
+-- ===============================
+SELECT * FROM timeZ;
 
-SELECT * from timez;
+-- ===============================
+-- DATE AND TIME FUNCTIONS
+-- ===============================
+-- Day of year
+SELECT to_char(now(), 'DDD') AS day_of_year;
 
+-- Subtracting interval from current date
+SELECT CURRENT_DATE - INTERVAL '1 year 2 months' AS past_date;
 
-SELECT now();
+-- Age calculation
+SELECT age(CURRENT_DATE, '1995-07-29') AS age_years;
 
-SELECT CURRENT_DATE;
+-- Age for students table (example)
+SELECT *, age(CURRENT_DATE, dob) AS age_of_student FROM students;
 
-SELECT now()::date;
-SELECT now()::time;
+-- Extract month from date
+SELECT EXTRACT(MONTH FROM '2024-01-25'::DATE) AS month_number;
 
-SELECT to_char(now(), 'DDD');
-
-SELECT CURRENT_DATE - INTERVAL '1 year 2 month';
-
-SELECT age(CURRENT_DATE, '1995-07-29');
-
-SELECT *, age(CURRENT_DATE, dob) from students;
-
-SELECT extract(month from  '2024-01-25'::date);
-
-SELECT 'n'::BOOLEAN;
+-- Boolean casting
+SELECT 'n'::BOOLEAN AS boolean_value;  -- 'n' will be false
