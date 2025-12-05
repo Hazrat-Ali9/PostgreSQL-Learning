@@ -1,20 +1,29 @@
--- Active: 1699467625194@@127.0.0.1@5432@ph@public
-CREATE Table "user"(
+-- ===============================
+-- DROP TABLES IF EXIST
+-- ===============================
+DROP TABLE IF EXISTS post;
+DROP TABLE IF EXISTS "user";
+
+-- ===============================
+-- CREATE USER TABLE
+-- ===============================
+CREATE TABLE "user" (
     id SERIAL PRIMARY KEY,
     username VARCHAR(25) NOT NULL
-)
+);
 
-CREATE Table post(
+-- ===============================
+-- CREATE POST TABLE WITH FOREIGN KEY
+-- ===============================
+CREATE TABLE post (
     id SERIAL PRIMARY KEY,
-    title text NOT NULL,
-    user_id INTEGER REFERENCES "user"(id) on delete set DEFAULT DEFAULT 2 
-)
+    title TEXT NOT NULL,
+    user_id INTEGER NOT NULL DEFAULT 2 REFERENCES "user"(id) ON DELETE SET DEFAULT
+);
 
-
-ALTER Table post
-    alter COLUMN user_id set NOT null;
-
-
+-- ===============================
+-- INSERT SAMPLE DATA
+-- ===============================
 INSERT INTO "user" (username) VALUES
 ('akash'),
 ('batash'),
@@ -27,37 +36,26 @@ INSERT INTO post (title, user_id) VALUES
 ('Exploring adventures with Sagor.🌟', 4),
 ('Nodi''s wisdom always leaves me inspired. 📚', 4);
 
+-- ===============================
+-- TEST QUERIES
+-- ===============================
+SELECT * FROM "user";
+SELECT * FROM post;
 
-DROP Table post;
-DROP Table "user";
+-- Attempting to insert a post without specifying a valid user_id
+-- This will use the default value (2) due to ON DELETE SET DEFAULT and DEFAULT constraint
+INSERT INTO post (title) VALUES ('Test post with default user_id');
 
-SELECT * from "user";
-SELECT * from post;
+-- Attempting to insert a post with NULL user_id (will fail because NOT NULL is enforced)
+-- INSERT INTO post (title, user_id) VALUES ('Invalid post', NULL); -- Uncommenting will throw error
 
+-- ===============================
+-- DELETE USER TEST
+-- ===============================
+-- Deleting user with id = 4 (Nodi)
+-- user_id in posts will be set to default (2) due to ON DELETE SET DEFAULT
+DELETE FROM "user" WHERE id = 4;
 
-
-
-
-
-
-
-INSERT INTO post (title, user_id) VALUES('test', NULL)
-
-
-
-
--- Insertion constraint on INSERT post
--- Attempting to insert a post with a user ID that does not exist
--- Inserting a post with a valid user ID
--- Attempting to insert a post without specifying a user ID
-
-
-DELETE FROM "user" 
-    WHERE id = 4;
-
-
--- Deletion constraint on DELETE user
--- Restrict Deletion -> ON DELETE RESTRICT / ON DELETE NO ACTION (default)
--- Cascading Deletion -> ON DELETE CASCADE
--- Setting NULL -> ON DELETE SET NULL
--- Set Default value -> ON DELETE SET DEFAULT
+-- Check results after deletion
+SELECT * FROM "user";
+SELECT * FROM post;
